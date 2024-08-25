@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvbrevjfprnkj"]
+
+[ext_resource type="PackedScene" uid="uid://oiuvgs56sp0o" path="res://Entities/Tiles/Ground_Tile.tscn" id="1_3aggr"]
+[ext_resource type="PackedScene" uid="uid://d2absbtovmths" path="res://Entities/Players/Square.tscn" id="1_d6e2s"]
+[ext_resource type="PackedScene" uid="uid://d3y2bdwh6nvi7" path="res://Entities/Players/Circle.tscn" id="2_d2w8x"]
+[ext_resource type="PackedScene" uid="uid://ckfisbasefaly" path="res://Entities/Players/Triangle.tscn" id="3_wlmmf"]
+
+[sub_resource type="Environment" id="Environment_41tgh"]
+background_mode = 1
+background_color = Color(0.838139, 0.793091, 3.85046e-07, 1)
+ambient_light_source = 1
+tonemap_mode = 1
+
+[node name="TestingScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.73038, -0.25, 0.635646, 0.00623601, 0.933013, 0.359789, -0.683013, -0.258819, 0.683013, 8, 6, 8)
+projection = 1
+size = 14.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_41tgh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.866025, -2.18557e-08, 0.5, -0.433013, 0.5, 0.75, -0.25, -0.866025, 0.433013, 0, 5, 0)
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="Tile" parent="Level" instance=ExtResource("1_3aggr")]
+
+[node name="Tile2" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Tile3" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Tile4" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Tile6" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="Tile5" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Tile13" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Tile14" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+
+[node name="Tile15" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="Tile7" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Tile8" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Tile9" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="Tile10" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+
+[node name="Tile11" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="Tile12" parent="Level" instance=ExtResource("1_3aggr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="Square" parent="Players" instance=ExtResource("1_d6e2s")]
+
+[node name="Circle" parent="Players" instance=ExtResource("2_d2w8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="Triangle" parent="Players" instance=ExtResource("3_wlmmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)

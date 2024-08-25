@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3y2bdwh6nvi7"]
+
+[ext_resource type="Script" path="res://Scripts/player_script.gd" id="1_28oax"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4rdp"]
+albedo_color = Color(0.333842, 0.646374, 0.710991, 1)
+
+[node name="Circle" type="Node3D"]
+script = ExtResource("1_28oax")
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 2.4, 0, 0, 0, 1, -0.232043, 0.35, -0.105636)
+radius = 0.145571
+height = 0.275
+material = SubResource("StandardMaterial3D_k4rdp")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 2.4, 0, 0, 0, 1, 0.232, 0.35, -0.106)
+radius = 0.145571
+height = 0.275
+material = SubResource("StandardMaterial3D_k4rdp")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, -5.64805e-08, 1.11318, 0, -1.29212, -4.86586e-08, -0.232043, 0.166506, 0.0576851)
+radius = 0.145571
+height = 0.275
+material = SubResource("StandardMaterial3D_k4rdp")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, -5.64805e-08, 1.11318, 0, -1.29212, -4.86586e-08, 0.232, 0.166151, 0.0577649)
+radius = 0.145571
+height = 0.275
+material = SubResource("StandardMaterial3D_k4rdp")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, -1.04907e-08, -1, 0, 0.24, -4.37114e-08, 0, 1, -0.0145825)
+material = SubResource("StandardMaterial3D_k4rdp")
