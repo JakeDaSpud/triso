@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://budij5qfymopn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tv4r"]
+albedo_color = Color(0.365088, 0.365088, 0.365088, 1)
+
+[node name="Square" type="Node3D"]
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mesh"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.3, 0)
+size = Vector3(0.8, 0.3, 0.8)
+material = SubResource("StandardMaterial3D_1tv4r")
