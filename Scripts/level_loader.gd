@@ -3,7 +3,8 @@ extends Node3D
 var GAMEMANAGERS_TileSize : float = 2.0;
 
 # Create an array of arrays to store x and y positions of all tiles that players can access
-var Board : Array[Array] = [];
+var Board : Array[Array];
+var BoardEmpty : Array[Array];
 
 # All Entities that can be Instanced
 const Circle_Player_Entity = preload("res://Entities/Players/Circle.tscn");
@@ -188,7 +189,7 @@ func _spawn(pos : Vector3, type : PackedScene) -> void:
 	if type == Circle_Player_Entity || type == Square_Player_Entity || type == Triangle_Player_Entity:
 		_tile.x = pos.x / GAMEMANAGERS_TileSize;
 		_tile.y = pos.z / GAMEMANAGERS_TileSize;
-		_tile.Board = Board;
+		#_tile.Board = Board;
 		if type == Circle_Player_Entity:
 			_tile.shape = "c";
 		if type == Square_Player_Entity:
@@ -205,10 +206,17 @@ func _spawn(pos : Vector3, type : PackedScene) -> void:
 func _input(delta) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		load_level("res://Scenes/Levels/Level-00_Testing.txt");
-		
 		Board.remove_at(Board.size() - 1);
 		print_debug("Board ", Board.size())
 		for inner_array in Board:
+			print_debug(inner_array, inner_array.size());
+			BoardEmpty.append(inner_array.duplicate());
+		for row  in range(0,BoardEmpty.size()-1):
+			for tile in range(0,BoardEmpty[row].size()-1):
+				if BoardEmpty[row][tile] == "s" || BoardEmpty[row][tile] == "c" || BoardEmpty[row][tile] == "t":
+					BoardEmpty[row][tile] = "g";
+		print_debug("Board Empty ", BoardEmpty.size())
+		for inner_array in BoardEmpty:
 			print_debug(inner_array, inner_array.size());
 
 func _wait(duration: float) -> void:
