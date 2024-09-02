@@ -1,0 +1,381 @@
+[gd_scene load_steps=5 format=3 uid="uid://cubpyoliwesop"]
+
+[ext_resource type="Theme" uid="uid://bi3a0ha1ob2vt" path="res://Assets/Themes/main_theme.tres" id="1_6qus3"]
+[ext_resource type="Script" path="res://Scenes/Menus/start_menu.gd" id="1_s6gm7"]
+[ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="3_fnmx3"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1w6fw"]
+color = Color(0.67, 0.67, 0.67, 0.588235)
+thickness = 5
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s6gm7")
+
+[node name="BG_Colour" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180239, 0.503054, 0.563255, 1)
+
+[node name="Main" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -64.0
+offset_right = 63.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6qus3")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = "Isometric Puzzle"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator2" type="HSeparator" parent="Main/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Level_Select_Button" type="Button" parent="Main/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = "Level Select"
+
+[node name="Settings_Button" type="Button" parent="Main/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = "Settings"
+
+[node name="HSeparator" type="HSeparator" parent="Main/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Quit_Button" type="Button" parent="Main/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = "Quit"
+
+[node name="Settings" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -121.5
+offset_right = 200.0
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Settings Title" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6qus3")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = "Settings"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator" type="HSeparator" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Game Title" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6qus3")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = " Game"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Level_Colour" type="BoxContainer" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Level_Colour" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/Level_Colour"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = " Level Colour"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Level_Colour_Dropdown" type="OptionButton" parent="Settings/HBoxContainer/VBoxContainer/Level_Colour"]
+layout_mode = 2
+selected = 1
+item_count = 18
+popup/item_0/text = "Choose Colour"
+popup/item_0/disabled = true
+popup/item_0/separator = true
+popup/item_1/text = "Random"
+popup/item_1/id = 1
+popup/item_2/text = "Red"
+popup/item_2/id = 2
+popup/item_3/text = "Orange"
+popup/item_3/id = 3
+popup/item_4/text = "Yellow"
+popup/item_4/id = 4
+popup/item_5/text = "Green"
+popup/item_5/id = 5
+popup/item_6/text = "Lime"
+popup/item_6/id = 6
+popup/item_7/text = "Seafoam"
+popup/item_7/id = 7
+popup/item_8/text = "Blue"
+popup/item_8/id = 8
+popup/item_9/text = "Pastel Blue"
+popup/item_9/id = 9
+popup/item_10/text = "Purple"
+popup/item_10/id = 10
+popup/item_11/text = "Pink"
+popup/item_11/id = 11
+popup/item_12/text = "Pastel Pink"
+popup/item_12/id = 12
+popup/item_13/text = "Brown"
+popup/item_13/id = 13
+popup/item_14/text = "Light Brown"
+popup/item_14/id = 14
+popup/item_15/text = "Black"
+popup/item_15/id = 15
+popup/item_16/text = "Grey"
+popup/item_16/id = 16
+popup/item_17/text = "White"
+popup/item_17/id = 17
+
+[node name="HSeparator3" type="HSeparator" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Video Title" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6qus3")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = " Video"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Fullscreen" type="BoxContainer" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/Fullscreen"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = " Fullscreen"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Fullscreen_Check" type="CheckBox" parent="Settings/HBoxContainer/VBoxContainer/Fullscreen"]
+layout_mode = 2
+button_pressed = true
+
+[node name="Resolution" type="BoxContainer" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Resolution" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/Resolution"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = " Window Size"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Resolutions_Dropdown" type="OptionButton" parent="Settings/HBoxContainer/VBoxContainer/Resolution"]
+layout_mode = 2
+selected = 1
+item_count = 11
+popup/item_0/text = "16:9"
+popup/item_0/id = 160
+popup/item_0/disabled = true
+popup/item_0/separator = true
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 161
+popup/item_2/text = "1600x900"
+popup/item_2/id = 162
+popup/item_3/text = "1280x720"
+popup/item_3/id = 163
+popup/item_4/text = "1024x576"
+popup/item_4/id = 164
+popup/item_5/text = "4:3"
+popup/item_5/id = 40
+popup/item_5/disabled = true
+popup/item_5/separator = true
+popup/item_6/text = "1920x1440"
+popup/item_6/id = 41
+popup/item_7/text = "1280x960"
+popup/item_7/id = 42
+popup/item_8/text = "1024x768"
+popup/item_8/id = 43
+popup/item_9/text = "800x600"
+popup/item_9/id = 44
+popup/item_10/text = "640x480"
+popup/item_10/id = 45
+
+[node name="HSeparator4" type="HSeparator" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Audio Title" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6qus3")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = " Audio"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Master" type="BoxContainer" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+vertical = true
+
+[node name="Master_Audio" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/Master"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = " Master Volume"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Master_Slider" type="HSlider" parent="Settings/HBoxContainer/VBoxContainer/Master"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+step = 5.0
+value = 100.0
+rounded = true
+
+[node name="Music" type="BoxContainer" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+vertical = true
+
+[node name="Music_Audio" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/Music"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = " Music Volume"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Music_Slider" type="HSlider" parent="Settings/HBoxContainer/VBoxContainer/Music"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+step = 5.0
+value = 100.0
+rounded = true
+
+[node name="SFX" type="BoxContainer" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+vertical = true
+
+[node name="SFX_Audio" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/SFX"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = " SFX Volume"
+fit_content = true
+autowrap_mode = 0
+
+[node name="SFX_Slider" type="HSlider" parent="Settings/HBoxContainer/VBoxContainer/SFX"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+step = 5.0
+value = 100.0
+rounded = true
+
+[node name="HSeparator2" type="HSeparator" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Back_Button" type="Button" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = "Back"
+
+[node name="LevelSelect" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Level_Select_Button" to="." method="open_level_select_menu"]
+[connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Settings_Button" to="." method="open_settings_menu"]
+[connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Quit_Button" to="." method="quit"]
+[connection signal="item_selected" from="Settings/HBoxContainer/VBoxContainer/Level_Colour/Level_Colour_Dropdown" to="." method="settings_set_resolution_and_window_size"]
+[connection signal="toggled" from="Settings/HBoxContainer/VBoxContainer/Fullscreen/Fullscreen_Check" to="." method="settings_toggle_fullscreen"]
+[connection signal="item_selected" from="Settings/HBoxContainer/VBoxContainer/Resolution/Resolutions_Dropdown" to="." method="settings_set_resolution_and_window_size"]
+[connection signal="pressed" from="Settings/HBoxContainer/VBoxContainer/Back_Button" to="." method="open_main_menu"]
