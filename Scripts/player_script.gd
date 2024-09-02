@@ -6,9 +6,10 @@ var x : int;
 var y : int;
 var shape : String;
 var far : int;
-var Board : Array;
-var BoardEmpty : Array;
+var Board : Array[Array];
+var BoardEmpty : Array[Array];
 var GotEmpty = false;
+var count = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,33 +17,38 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var Board = get_parent().Board;
+	# Get board array from parent, change current coordinates with own shape, update the parent's board
+	Board = get_parent().Board;
+	Board[y][x] = shape;
+	get_parent().Board = Board
+	# Only once get the empty board from the parent, this will not change
 	if !GotEmpty:
 		BoardEmpty = get_parent().BoardEmpty;
 		GotEmpty = true;
 	
 	# Handle Input
 	if Input.is_action_just_pressed("Left"):
-		Board[y][x] = shape;
+		# Use variable far in cases where the immediate next space is filled by a player, but somewhere down the line is free so everyone can move and this player should
 		far = x-1;
 		while true:
+			# Stop at walls or voids
 			if Board[y][far] == "w" || Board[y][far] == "v":
 				break;
 			
+			# If moving into a player check if there is a free space after so everyone can move
 			elif Board[y][far] == "s" || Board[y][far] == "c" || Board[y][far] == "t":
 				far -= 1;
 			
+			# Move if free space available
 			else:
 				self.position.x -= _tile_size;
+				# Change current tile to be the ground tile under the player
 				Board[y][x] = BoardEmpty[y][x];
-				Board[y][x-1] = shape;
 				x -= 1;
 				print_debug(x,", ",y)
-				get_parent().Board = Board
 				break;
 	
 	if Input.is_action_just_pressed("Up"):
-		Board[y][x] = shape;
 		far = y-1;
 		while true:
 			if Board[far][x] == "w" || Board[far][x] == "v":
@@ -54,14 +60,11 @@ func _process(delta):
 			else:
 				self.position.z -= _tile_size;
 				Board[y][x] = BoardEmpty[y][x];
-				Board[y-1][x] = shape;
 				y -= 1;
 				print_debug(x,", ",y)
-				get_parent().Board = Board
 				break;
 	
 	if Input.is_action_just_pressed("Right"):
-		Board[y][x] = shape;
 		far = x+1;
 		while true:
 			if Board[y][far] == "w" || Board[y][far] == "v":
@@ -73,14 +76,11 @@ func _process(delta):
 			else:
 				self.position.x += _tile_size;
 				Board[y][x] = BoardEmpty[y][x];
-				Board[y][x+1] = shape;
 				x += 1;
 				print_debug(x,", ",y)
-				get_parent().Board = Board
 				break;
 	
 	if Input.is_action_just_pressed("Down"):
-		Board[y][x] = shape;
 		far = y+1;
 		while true:
 			if Board[far][x] == "w" || Board[far][x] == "v":
@@ -92,9 +92,13 @@ func _process(delta):
 			else:
 				self.position.z += _tile_size;
 				Board[y][x] = BoardEmpty[y][x];
-				Board[y+1][x] = shape;
 				y += 1;
 				print_debug(x,", ",y)
-				get_parent().Board = Board
 				break;
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		count += 1;
+		print("\nBoard ", count)
+		for inner_array in Board:
+			print(inner_array, inner_array.size());
 	
