@@ -2,6 +2,11 @@ extends Node3D
 
 var GAMEMANAGERS_TileSize : float = 2.0;
 
+# Create an array of arrays to store x and y positions of all tiles that players can access
+var Board : Array[Array];
+# Create an array of arrays to see map without players on it
+var BoardEmpty : Array[Array];
+
 # All Entities that can be Instanced
 const Circle_Player_Entity = preload("res://Entities/Players/Circle.tscn");
 const Square_Player_Entity = preload("res://Entities/Players/Square.tscn");
@@ -52,7 +57,8 @@ var wall_count : int = 0;
 var void_count : int = 0;
 
 func _ready():
-	pass
+	# Add first row to array
+	Board.append([]);
 	
 
 func _load_from_file(_file_path : String) -> String:
@@ -102,20 +108,30 @@ func load_level(level_file_path : String) -> void:
 			
 			# Last tile on the current line
 			_determine_tile_and_spawn(_tile_duo[0], Vector3(col * GAMEMANAGERS_TileSize, 0, row * GAMEMANAGERS_TileSize));
+			# Add character to the last array inside the board array
+			Board.back().append(_tile_duo[0]);
 			
 			print_debug("Going to next line!");
 			col = 0;
 			row += 1;
+			# start new line in array
+			Board.append([]);
 			
 			# First tile on the next line
 			_determine_tile_and_spawn(_tile_duo[1], Vector3(col * GAMEMANAGERS_TileSize, 0, row * GAMEMANAGERS_TileSize));
+			# Add character to the last array inside the board array
+			Board.back().append(_tile_duo[1]);
+			
+			# Add new row to array ever line in the text file
 		
 		# Going right
 		else:
 			col += 1;
 		
 		_determine_tile_and_spawn(_current_tile, Vector3(col * GAMEMANAGERS_TileSize, 0, row * GAMEMANAGERS_TileSize));
-		
+		if(_current_tile != "v\nv"):
+			# Add character to the last array inside the board array
+			Board.back().append(_current_tile);
 	# 
 	
 
@@ -175,16 +191,41 @@ func _spawn(pos : Vector3, type : PackedScene) -> void:
 	
 	_tile.position = pos;
 	
+	# If the created tile is a player then add x and y position, aswell as tell it what type of shape it is
+	if type == Circle_Player_Entity || type == Square_Player_Entity || type == Triangle_Player_Entity:
+		_tile.x = pos.x / GAMEMANAGERS_TileSize;
+		_tile.y = pos.z / GAMEMANAGERS_TileSize;
+		if type == Circle_Player_Entity:
+			_tile.shape = "c";
+		if type == Square_Player_Entity:
+			_tile.shape = "s";
+		if type == Triangle_Player_Entity:
+			_tile.shape = "t";
+	
 	# Dramatic pause so the player can see the level get built, might be annoying for bigger levels
 	_wait(0.5);
 	add_child(_tile);
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta) -> void:
+func _input(delta) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		load_level("res://Scenes/Levels/Level-00_Testing.txt");
-	
+		# Remove last empty row that is created because of level file structure
+		Board.remove_at(Board.size() - 1);
+		print_debug("Board ", Board.size())
+		for inner_array in Board:
+			print_debug(inner_array, inner_array.size());
+			# Fill the empty board with duplicate rows from the main board array
+			BoardEmpty.append(inner_array.duplicate());
+		# Replace all the players in the empty board with ground tiles
+		for row  in range(0,BoardEmpty.size()-1):
+			for tile in range(0,BoardEmpty[row].size()):
+				if BoardEmpty[row][tile] == "s" || BoardEmpty[row][tile] == "c" || BoardEmpty[row][tile] == "t":
+					BoardEmpty[row][tile] = "g";
+		print_debug("Board Empty ", BoardEmpty.size())
+		for inner_array in BoardEmpty:
+			print_debug(inner_array, inner_array.size());
 
 func _wait(duration: float) -> void:
 	await get_tree().create_timer(duration).timeout;
