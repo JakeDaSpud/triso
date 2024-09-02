@@ -10,6 +10,7 @@ var Board : Array[Array];
 var BoardEmpty : Array[Array];
 var GotEmpty = false;
 var count = 0;
+var timer : int;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,10 +26,13 @@ func _process(delta):
 	if !GotEmpty:
 		BoardEmpty = get_parent().BoardEmpty;
 		GotEmpty = true;
+	# Add a vary short timer that stops similtanious imputs from breaking the movement array
+	timer += 1;
 	
 	# Handle Input
-	if Input.is_action_just_pressed("Left"):
+	if Input.is_action_just_pressed("Left") && timer > 2:
 		# Use variable far in cases where the immediate next space is filled by a player, but somewhere down the line is free so everyone can move and this player should
+		timer = 0;
 		far = x-1;
 		while true:
 			# Stop at walls or voids
@@ -45,10 +49,11 @@ func _process(delta):
 				# Change current tile to be the ground tile under the player
 				Board[y][x] = BoardEmpty[y][x];
 				x -= 1;
-				print_debug(x,", ",y)
+				print(shape,": ",x,",",y)
 				break;
 	
-	if Input.is_action_just_pressed("Up"):
+	if Input.is_action_just_pressed("Up") && timer > 2:
+		timer = 0;
 		far = y-1;
 		while true:
 			if Board[far][x] == "w" || Board[far][x] == "v":
@@ -61,10 +66,11 @@ func _process(delta):
 				self.position.z -= _tile_size;
 				Board[y][x] = BoardEmpty[y][x];
 				y -= 1;
-				print_debug(x,", ",y)
+				print(shape,": ",x,",",y)
 				break;
 	
-	if Input.is_action_just_pressed("Right"):
+	if Input.is_action_just_pressed("Right") && timer > 2:
+		timer = 0;
 		far = x+1;
 		while true:
 			if Board[y][far] == "w" || Board[y][far] == "v":
@@ -77,10 +83,11 @@ func _process(delta):
 				self.position.x += _tile_size;
 				Board[y][x] = BoardEmpty[y][x];
 				x += 1;
-				print_debug(x,", ",y)
+				print(shape,": ",x,",",y)
 				break;
 	
-	if Input.is_action_just_pressed("Down"):
+	if Input.is_action_just_pressed("Down") && timer > 2:
+		timer = 0;
 		far = y+1;
 		while true:
 			if Board[far][x] == "w" || Board[far][x] == "v":
@@ -93,7 +100,7 @@ func _process(delta):
 				self.position.z += _tile_size;
 				Board[y][x] = BoardEmpty[y][x];
 				y += 1;
-				print_debug(x,", ",y)
+				print(shape,": ",x,",",y)
 				break;
 	
 	if Input.is_action_just_pressed("ui_accept"):
