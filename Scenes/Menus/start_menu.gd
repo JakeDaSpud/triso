@@ -4,6 +4,7 @@ extends Control
 var main : Control;
 var settings : Control;
 var level_select : Control;
+var credits : Control;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,7 @@ func _ready():
 	main = $Main;
 	settings = $Settings;
 	level_select = $LevelSelect;
+	credits = $Credits;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -19,14 +21,30 @@ func _process(_delta):
 func open_main_menu() -> void:
 	settings.hide();
 	level_select.hide();
+	credits.hide();
 	
 	main.show();;
 
 func open_settings_menu() -> void:
 	main.hide();
 	level_select.hide();
+	credits.hide();
 	
 	settings.show();
+
+func open_level_select_menu() -> void:
+	main.hide();
+	settings.hide();
+	credits.hide();
+	
+	level_select.show();
+
+func open_credits_menu() -> void:
+	main.hide();
+	settings.hide();
+	level_select.hide();
+	
+	credits.show();
 
 func settings_toggle_fullscreen(toggled_on : bool) -> void:
 	
@@ -61,12 +79,6 @@ func settings_set_resolution_and_window_size(index : int) -> void:
 		DisplayServer.window_set_size(Vector2i(800, 600));
 	elif (index == 10):
 		DisplayServer.window_set_size(Vector2i(640, 480));
-
-func open_level_select_menu() -> void:
-	main.hide();
-	settings.hide();
-	
-	level_select.show();;
 
 # Close game window
 func quit() -> void:

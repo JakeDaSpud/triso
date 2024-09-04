@@ -34,7 +34,6 @@ grow_vertical = 2
 color = Color(0.180239, 0.503054, 0.563255, 1)
 
 [node name="Main" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,6 +87,11 @@ text = "Level Select"
 layout_mode = 2
 theme = ExtResource("3_fnmx3")
 text = "Settings"
+
+[node name="Credits_Button" type="Button" parent="Main/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = "Credits"
 
 [node name="HSeparator" type="HSeparator" parent="Main/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -372,6 +376,7 @@ theme = ExtResource("3_fnmx3")
 text = "Back"
 
 [node name="LevelSelect" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1132,10 +1137,138 @@ layout_mode = 2
 theme = ExtResource("3_fnmx3")
 text = "Back"
 
+[node name="Credits" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -121.5
+offset_right = 200.0
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Credits Title" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6qus3")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = "Credits"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator" type="HSeparator" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Jake O\'Reilly Title" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6qus3")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = " Jake O'Reilly"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Jake Jobs" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = " Lead, Programming, Concept, Level Design"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator3" type="HSeparator" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Kaylon Riordan Title" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6qus3")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = " Kaylon Riordan"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Kaylon Riordan Jobs" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = " Programming: Player Collision"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator2" type="HSeparator" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Eoin Hamill Title" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6qus3")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = " Eoin Hamill"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Eoin Hamill Jobs" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = " 3D Art: Player Models, Tile Models"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator4" type="HSeparator" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Back_Button" type="Button" parent="Credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fnmx3")
+text = "Back"
+
 [connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Level_Select_Button" to="." method="open_level_select_menu"]
 [connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Settings_Button" to="." method="open_settings_menu"]
+[connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Credits_Button" to="." method="open_credits_menu"]
 [connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Quit_Button" to="." method="quit"]
 [connection signal="toggled" from="Settings/HBoxContainer/VBoxContainer/Fullscreen/Fullscreen_Check" to="." method="settings_toggle_fullscreen"]
 [connection signal="item_selected" from="Settings/HBoxContainer/VBoxContainer/Resolution/Resolutions_Dropdown" to="." method="settings_set_resolution_and_window_size"]
 [connection signal="pressed" from="Settings/HBoxContainer/VBoxContainer/Back_Button" to="." method="open_main_menu"]
 [connection signal="pressed" from="LevelSelect/NewLevelSelect/VBoxContainer/Back_Button" to="." method="open_main_menu"]
+[connection signal="pressed" from="Credits/HBoxContainer/VBoxContainer/Back_Button" to="." method="open_main_menu"]
