@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://c63ydq1syhe8l"]
+
+[ext_resource type="Theme" uid="uid://bi3a0ha1ob2vt" path="res://Assets/Themes/main_theme.tres" id="1_jtg04"]
+[ext_resource type="Script" path="res://Scenes/Menus/level_select_scene.gd" id="1_ycft7"]
+[ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="2_xt1fr"]
+
+[sub_resource type="Theme" id="Theme_rk8y6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxftk"]
+bg_color = Color(0.0634697, 0, 0.821386, 0.172549)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1w6fw"]
+color = Color(0.67, 0.67, 0.67, 0.588235)
+thickness = 5
+
+[sub_resource type="SystemFont" id="SystemFont_yv6uv"]
+subpixel_positioning = 0
+
+[node name="Level_01" type="Control"]
+custom_minimum_size = Vector2(410, 210)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ycft7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme = SubResource("Theme_rk8y6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_bxftk")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Attributes" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Level Select Title" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/Attributes"]
+layout_mode = 2
+theme = ExtResource("1_jtg04")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = " Level 01 - Basics"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/Attributes"]
+layout_mode = 2
+theme = ExtResource("2_xt1fr")
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
+
+[node name="Difficulty Title" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/Attributes"]
+layout_mode = 2
+theme = ExtResource("2_xt1fr")
+text = " Difficulty:⭐"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Target Moves Title" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/Attributes"]
+layout_mode = 2
+theme = ExtResource("2_xt1fr")
+text = " Challenge: Under 4 moves "
+fit_content = true
+autowrap_mode = 0
+
+[node name="PB Moves Title" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/Attributes"]
+layout_mode = 2
+theme = ExtResource("2_xt1fr")
+text = " Personal Best: -"
+fit_content = true
+autowrap_mode = 0
+
+[node name="PlayButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/Attributes"]
+layout_mode = 2
+theme = ExtResource("2_xt1fr")
+theme_override_colors/font_color = Color(0.775352, 0.966889, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_yv6uv")
+text = "Play"

@@ -1,19 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cubpyoliwesop"]
+[gd_scene load_steps=6 format=3 uid="uid://cubpyoliwesop"]
 
 [ext_resource type="Theme" uid="uid://bi3a0ha1ob2vt" path="res://Assets/Themes/main_theme.tres" id="1_6qus3"]
 [ext_resource type="Script" path="res://Scenes/Menus/start_menu.gd" id="1_s6gm7"]
 [ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="3_fnmx3"]
+[ext_resource type="PackedScene" uid="uid://c63ydq1syhe8l" path="res://Scenes/Menus/level_select_scene.tscn" id="4_xp50j"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_1w6fw"]
 color = Color(0.67, 0.67, 0.67, 0.588235)
 thickness = 5
-
-[sub_resource type="Theme" id="Theme_rk8y6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxftk"]
-bg_color = Color(0.0634697, 0, 0.821386, 0.172549)
-
-[sub_resource type="SystemFont" id="SystemFont_yv6uv"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -34,7 +28,6 @@ grow_vertical = 2
 color = Color(0.180239, 0.503054, 0.563255, 1)
 
 [node name="Main" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -377,6 +370,7 @@ theme = ExtResource("3_fnmx3")
 text = "Back"
 
 [node name="LevelSelect" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -444,227 +438,29 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Level_01_Thumbnail" type="Control" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1"]
-custom_minimum_size = Vector2(410, 210)
+[node name="Level_01" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_xp50j")]
 layout_mode = 2
+level_id = "Level 01"
+level_name = "Basics"
+level_difficulty = "⭐"
+level_target = 4
+level_txt_file = "res://Scenes/Levels/Level-01_Basics.txt"
 
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail/MarginContainer"]
-custom_minimum_size = Vector2(400, 200)
+[node name="Level_02" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_xp50j")]
 layout_mode = 2
-theme = SubResource("Theme_rk8y6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxftk")
+level_id = "Level 02"
+level_name = "S, imple"
+level_difficulty = "⭐"
+level_target = 11
+level_txt_file = "res://Scenes/Levels/Level-02_S_imple.txt"
 
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer"]
+[node name="Level_03" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_xp50j")]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Attributes" type="VBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Level Select Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("1_6qus3")
-theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_offset_x = 2
-text = " Level 01"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HSeparator" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_constants/separation = 5
-theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
-
-[node name="Difficulty Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Difficulty:⭐"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Target Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Challenge: Beat with 5 moves "
-fit_content = true
-autowrap_mode = 0
-
-[node name="PB Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Personal Best: -"
-fit_content = true
-autowrap_mode = 0
-
-[node name="PlayButton" type="Button" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_colors/font_color = Color(0.775352, 0.966889, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_yv6uv")
-text = "Play"
-
-[node name="Level_01_Thumbnail2" type="Control" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1"]
-custom_minimum_size = Vector2(410, 210)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail2/MarginContainer"]
-custom_minimum_size = Vector2(400, 200)
-layout_mode = 2
-theme = SubResource("Theme_rk8y6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxftk")
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Attributes" type="VBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Level Select Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("1_6qus3")
-theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_offset_x = 2
-text = " Level 01"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HSeparator" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_constants/separation = 5
-theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
-
-[node name="Difficulty Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Difficulty:⭐"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Target Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Challenge: Beat with 5 moves "
-fit_content = true
-autowrap_mode = 0
-
-[node name="PB Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Personal Best: -"
-fit_content = true
-autowrap_mode = 0
-
-[node name="PlayButton" type="Button" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_colors/font_color = Color(0.775352, 0.966889, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_yv6uv")
-text = "Play"
-
-[node name="Level_01_Thumbnail3" type="Control" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1"]
-custom_minimum_size = Vector2(410, 210)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail3/MarginContainer"]
-custom_minimum_size = Vector2(400, 200)
-layout_mode = 2
-theme = SubResource("Theme_rk8y6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxftk")
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Attributes" type="VBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Level Select Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("1_6qus3")
-theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_offset_x = 2
-text = " Level 01"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HSeparator" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_constants/separation = 5
-theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
-
-[node name="Difficulty Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Difficulty:⭐"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Target Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Challenge: Beat with 5 moves "
-fit_content = true
-autowrap_mode = 0
-
-[node name="PB Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Personal Best: -"
-fit_content = true
-autowrap_mode = 0
-
-[node name="PlayButton" type="Button" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_colors/font_color = Color(0.775352, 0.966889, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_yv6uv")
-text = "Play"
+level_id = "Level 03"
+level_name = "Infinity"
+level_difficulty = "⭐"
+level_target = 8
+level_txt_file = "res://Scenes/Levels/Level-03_Infinity.txt"
 
 [node name="MarginContainer2" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows"]
 layout_mode = 2
@@ -674,457 +470,21 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Level_01_Thumbnail" type="Control" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1"]
-custom_minimum_size = Vector2(410, 210)
+[node name="Level_04" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1" instance=ExtResource("4_xp50j")]
 layout_mode = 2
+level_id = "Level 04"
+level_name = "Loop"
+level_difficulty = "⭐"
+level_target = 10
+level_txt_file = "res://Scenes/Levels/Level-04_Loop.txt"
 
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail/MarginContainer"]
-custom_minimum_size = Vector2(400, 200)
+[node name="Level_05" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1" instance=ExtResource("4_xp50j")]
 layout_mode = 2
-theme = SubResource("Theme_rk8y6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxftk")
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Attributes" type="VBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Level Select Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("1_6qus3")
-theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_offset_x = 2
-text = " Level 01"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HSeparator" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_constants/separation = 5
-theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
-
-[node name="Difficulty Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Difficulty:⭐"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Target Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Challenge: Beat with 5 moves "
-fit_content = true
-autowrap_mode = 0
-
-[node name="PB Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Personal Best: -"
-fit_content = true
-autowrap_mode = 0
-
-[node name="PlayButton" type="Button" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_colors/font_color = Color(0.775352, 0.966889, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_yv6uv")
-text = "Play"
-
-[node name="Level_01_Thumbnail2" type="Control" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1"]
-custom_minimum_size = Vector2(410, 210)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail2/MarginContainer"]
-custom_minimum_size = Vector2(400, 200)
-layout_mode = 2
-theme = SubResource("Theme_rk8y6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxftk")
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Attributes" type="VBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Level Select Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("1_6qus3")
-theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_offset_x = 2
-text = " Level 01"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HSeparator" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_constants/separation = 5
-theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
-
-[node name="Difficulty Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Difficulty:⭐"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Target Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Challenge: Beat with 5 moves "
-fit_content = true
-autowrap_mode = 0
-
-[node name="PB Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Personal Best: -"
-fit_content = true
-autowrap_mode = 0
-
-[node name="PlayButton" type="Button" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_colors/font_color = Color(0.775352, 0.966889, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_yv6uv")
-text = "Play"
-
-[node name="Level_01_Thumbnail3" type="Control" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1"]
-custom_minimum_size = Vector2(410, 210)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail3/MarginContainer"]
-custom_minimum_size = Vector2(400, 200)
-layout_mode = 2
-theme = SubResource("Theme_rk8y6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxftk")
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Attributes" type="VBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Level Select Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("1_6qus3")
-theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_offset_x = 2
-text = " Level 01"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HSeparator" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_constants/separation = 5
-theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
-
-[node name="Difficulty Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Difficulty:⭐"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Target Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Challenge: Beat with 5 moves "
-fit_content = true
-autowrap_mode = 0
-
-[node name="PB Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Personal Best: -"
-fit_content = true
-autowrap_mode = 0
-
-[node name="PlayButton" type="Button" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_colors/font_color = Color(0.775352, 0.966889, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_yv6uv")
-text = "Play"
-
-[node name="MarginContainer3" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows"]
-layout_mode = 2
-theme_override_constants/margin_bottom = 5
-
-[node name="Level_Row_1" type="HBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Level_01_Thumbnail" type="Control" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1"]
-custom_minimum_size = Vector2(410, 210)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail/MarginContainer"]
-custom_minimum_size = Vector2(400, 200)
-layout_mode = 2
-theme = SubResource("Theme_rk8y6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxftk")
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Attributes" type="VBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Level Select Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("1_6qus3")
-theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_offset_x = 2
-text = " Level 01"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HSeparator" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_constants/separation = 5
-theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
-
-[node name="Difficulty Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Difficulty:⭐"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Target Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Challenge: Beat with 5 moves "
-fit_content = true
-autowrap_mode = 0
-
-[node name="PB Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Personal Best: -"
-fit_content = true
-autowrap_mode = 0
-
-[node name="PlayButton" type="Button" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_colors/font_color = Color(0.775352, 0.966889, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_yv6uv")
-text = "Play"
-
-[node name="Level_01_Thumbnail2" type="Control" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1"]
-custom_minimum_size = Vector2(410, 210)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail2/MarginContainer"]
-custom_minimum_size = Vector2(400, 200)
-layout_mode = 2
-theme = SubResource("Theme_rk8y6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxftk")
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Attributes" type="VBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Level Select Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("1_6qus3")
-theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_offset_x = 2
-text = " Level 01"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HSeparator" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_constants/separation = 5
-theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
-
-[node name="Difficulty Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Difficulty:⭐"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Target Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Challenge: Beat with 5 moves "
-fit_content = true
-autowrap_mode = 0
-
-[node name="PB Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Personal Best: -"
-fit_content = true
-autowrap_mode = 0
-
-[node name="PlayButton" type="Button" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail2/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_colors/font_color = Color(0.775352, 0.966889, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_yv6uv")
-text = "Play"
-
-[node name="Level_01_Thumbnail3" type="Control" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1"]
-custom_minimum_size = Vector2(410, 210)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail3/MarginContainer"]
-custom_minimum_size = Vector2(400, 200)
-layout_mode = 2
-theme = SubResource("Theme_rk8y6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxftk")
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Attributes" type="VBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Level Select Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("1_6qus3")
-theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_offset_x = 2
-text = " Level 01"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HSeparator" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_constants/separation = 5
-theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
-
-[node name="Difficulty Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Difficulty:⭐"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Target Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Challenge: Beat with 5 moves "
-fit_content = true
-autowrap_mode = 0
-
-[node name="PB Moves Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-text = " Personal Best: -"
-fit_content = true
-autowrap_mode = 0
-
-[node name="PlayButton" type="Button" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1/Level_01_Thumbnail3/MarginContainer/PanelContainer/MarginContainer/Attributes"]
-layout_mode = 2
-theme = ExtResource("3_fnmx3")
-theme_override_colors/font_color = Color(0.775352, 0.966889, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_yv6uv")
-text = "Play"
+level_id = "Level 05"
+level_name = "Shuffle"
+level_difficulty = "⭐"
+level_target = 5
+level_txt_file = "res://Scenes/Levels/Level-05_Shuffle.txt"
 
 [node name="HSeparator2" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer"]
 layout_mode = 2
