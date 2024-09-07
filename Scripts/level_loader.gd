@@ -224,12 +224,6 @@ func _spawn(pos : Vector3, type : PackedScene) -> void:
 	add_child(_tile);
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _input(delta) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		pass;
-		#load_level("res");
-
 # Dramatic pause so the player can see the level get built, might be annoying for bigger levels
 func _wait(duration : float) -> void:
 	if (GameManager.level_waiting):

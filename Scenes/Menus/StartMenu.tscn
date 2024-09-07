@@ -314,9 +314,9 @@ autowrap_mode = 0
 [node name="Master_Slider" type="HSlider" parent="Settings/HBoxContainer/VBoxContainer/Master"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-step = 5.0
-value = 100.0
-rounded = true
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="Music" type="BoxContainer" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -334,9 +334,9 @@ autowrap_mode = 0
 clip_contents = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-step = 5.0
-value = 100.0
-rounded = true
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="SFX" type="BoxContainer" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -354,9 +354,9 @@ autowrap_mode = 0
 clip_contents = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-step = 5.0
-value = 100.0
-rounded = true
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="HSeparator2" type="HSeparator" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -623,12 +623,17 @@ layout_mode = 2
 theme = ExtResource("3_fnmx3")
 text = "Back"
 
+[node name="BG_Music" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Level_Select_Button" to="." method="open_level_select_menu"]
 [connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Settings_Button" to="." method="open_settings_menu"]
 [connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Credits_Button" to="." method="open_credits_menu"]
 [connection signal="pressed" from="Main/HBoxContainer/VBoxContainer/Quit_Button" to="." method="quit"]
 [connection signal="toggled" from="Settings/HBoxContainer/VBoxContainer/Fullscreen/Fullscreen_Check" to="." method="settings_toggle_fullscreen"]
 [connection signal="item_selected" from="Settings/HBoxContainer/VBoxContainer/Resolution/Resolutions_Dropdown" to="." method="settings_set_resolution_and_window_size"]
+[connection signal="mouse_exited" from="Settings/HBoxContainer/VBoxContainer/Master/Master_Slider" to="." method="setting_set_master_volume"]
+[connection signal="mouse_exited" from="Settings/HBoxContainer/VBoxContainer/Music/Music_Slider" to="." method="setting_set_music_volume"]
+[connection signal="mouse_exited" from="Settings/HBoxContainer/VBoxContainer/SFX/SFX_Slider" to="." method="setting_set_sfx_volume"]
 [connection signal="pressed" from="Settings/HBoxContainer/VBoxContainer/Back_Button" to="." method="open_main_menu"]
 [connection signal="pressed" from="LevelSelect/NewLevelSelect/VBoxContainer/Back_Button" to="." method="open_main_menu"]
 [connection signal="pressed" from="Credits/HBoxContainer/VBoxContainer/Back_Button" to="." method="open_main_menu"]

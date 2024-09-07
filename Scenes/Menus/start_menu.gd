@@ -6,13 +6,29 @@ var settings : Control;
 var level_select : Control;
 var credits : Control;
 
+var settings_master_slider : Control;
+var settings_music_slider : Control;
+var settings_sfx_slider : Control;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	# Grab all Menus
 	main = $Main;
 	settings = $Settings;
 	level_select = $LevelSelect;
 	credits = $Credits;
+	
+	# Grab all Audio Sliders
+	settings_master_slider = $Settings/HBoxContainer/VBoxContainer/Master/Master_Slider;
+	settings_music_slider = $Settings/HBoxContainer/VBoxContainer/Music/Music_Slider;
+	settings_sfx_slider = $Settings/HBoxContainer/VBoxContainer/SFX/SFX_Slider;
+	
+	# Set Audio Defaults, grabbing by AudioServer index
+	settings_master_slider.value = db_to_linear(AudioServer.get_bus_volume_db(0));
+	settings_sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(1));
+	settings_music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(2));
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -79,6 +95,18 @@ func settings_set_resolution_and_window_size(index : int) -> void:
 		DisplayServer.window_set_size(Vector2i(800, 600));
 	elif (index == 10):
 		DisplayServer.window_set_size(Vector2i(640, 480));
+
+func setting_set_master_volume() -> void:
+	release_focus();
+	AudioServer.set_bus_volume_db(0, linear_to_db(settings_master_slider.value));
+
+func setting_set_sfx_volume() -> void:
+	release_focus();
+	AudioServer.set_bus_volume_db(1, linear_to_db(settings_sfx_slider.value));
+
+func setting_set_music_volume() -> void:
+	release_focus();
+	AudioServer.set_bus_volume_db(2, linear_to_db(settings_music_slider.value));
 
 # Close game window
 func quit() -> void:
