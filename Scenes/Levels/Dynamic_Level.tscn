@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://023dl7lti4dx"]
 
 [ext_resource type="Script" path="res://Scripts/level_loader.gd" id="1_opnp5"]
-[ext_resource type="Script" path="res://Scenes/Levels/pause_menu.gd" id="2_8xam4"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="2_8xam4"]
 [ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="3_ho1sy"]
 
 [node name="Dynamic_Level" type="Node3D"]

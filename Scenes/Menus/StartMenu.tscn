@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cubpyoliwesop"]
 
 [ext_resource type="Theme" uid="uid://bi3a0ha1ob2vt" path="res://Assets/Themes/main_theme.tres" id="1_6qus3"]
-[ext_resource type="Script" path="res://Scenes/Menus/start_menu.gd" id="1_s6gm7"]
+[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_s6gm7"]
 [ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="3_fnmx3"]
 [ext_resource type="PackedScene" uid="uid://c63ydq1syhe8l" path="res://Scenes/Menus/level_select_scene.tscn" id="4_xp50j"]
 
