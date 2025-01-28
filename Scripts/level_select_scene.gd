@@ -5,7 +5,7 @@ extends Control
 @export var level_difficulty : String = "⭐⭐⭐⭐⭐⭐⭐";
 @export var level_target : int = 0; # Amount of moves to complete the level under
 @export var level_pb : int = -1;
-@export var level_txt_file : String = "res://Scenes/Levels/Level-00_Testing.txt";
+@export var level_txt_file : String = "res://Scenes/Levels/LevelData/Level-00_Testing.txt";
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

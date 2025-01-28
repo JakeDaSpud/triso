@@ -444,7 +444,7 @@ level_id = "Level 01"
 level_name = "Basics"
 level_difficulty = "⭐"
 level_target = 4
-level_txt_file = "res://Scenes/Levels/Level-01_Basics.txt"
+level_txt_file = "res://Scenes/Levels/LevelData/Level-01_Basics.txt"
 
 [node name="Level_02" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_xp50j")]
 layout_mode = 2
@@ -452,7 +452,7 @@ level_id = "Level 02"
 level_name = "S, imple"
 level_difficulty = "⭐"
 level_target = 11
-level_txt_file = "res://Scenes/Levels/Level-02_S_imple.txt"
+level_txt_file = "res://Scenes/Levels/LevelData/Level-02_S_imple.txt"
 
 [node name="Level_03" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_xp50j")]
 layout_mode = 2
@@ -460,7 +460,7 @@ level_id = "Level 03"
 level_name = "Infinity"
 level_difficulty = "⭐"
 level_target = 8
-level_txt_file = "res://Scenes/Levels/Level-03_Infinity.txt"
+level_txt_file = "res://Scenes/Levels/LevelData/Level-03_Infinity.txt"
 
 [node name="MarginContainer2" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows"]
 layout_mode = 2
@@ -476,7 +476,7 @@ level_id = "Level 04"
 level_name = "Loop"
 level_difficulty = "⭐"
 level_target = 10
-level_txt_file = "res://Scenes/Levels/Level-04_Loop.txt"
+level_txt_file = "res://Scenes/Levels/LevelData/Level-04_Loop.txt"
 
 [node name="Level_05" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1" instance=ExtResource("4_xp50j")]
 layout_mode = 2
@@ -484,7 +484,7 @@ level_id = "Level 05"
 level_name = "Shuffle"
 level_difficulty = "⭐"
 level_target = 5
-level_txt_file = "res://Scenes/Levels/Level-05_Shuffle.txt"
+level_txt_file = "res://Scenes/Levels/LevelData/Level-05_Shuffle.txt"
 
 [node name="HSeparator2" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer"]
 layout_mode = 2
