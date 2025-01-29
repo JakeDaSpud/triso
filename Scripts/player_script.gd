@@ -20,6 +20,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (GameManager.level_complete):
+		return;
+	
 	# Get board array from parent, change current coordinates with own shape, update the parent's board
 	Board = get_parent().Board;
 	Board[y][x] = shape;
@@ -55,6 +58,7 @@ func _process(delta):
 				break;
 			
 		Board = get_parent().Board;
+		GameManager.increment_player_move();
 		checkIfOnGoal();
 	
 	if Input.is_action_just_pressed("Up") && timer > 2:
@@ -75,6 +79,7 @@ func _process(delta):
 				break;
 			
 		Board = get_parent().Board;
+		GameManager.increment_player_move();
 		checkIfOnGoal();
 	
 	if Input.is_action_just_pressed("Right") && timer > 2:
@@ -95,6 +100,7 @@ func _process(delta):
 				break;
 			
 		Board = get_parent().Board;
+		GameManager.increment_player_move();
 		checkIfOnGoal();
 	
 	if Input.is_action_just_pressed("Down") && timer > 2:
@@ -115,6 +121,7 @@ func _process(delta):
 				break;
 			
 		Board = get_parent().Board;
+		GameManager.increment_player_move();
 		checkIfOnGoal();
 	
 	if Input.is_action_just_pressed("ui_accept"):
@@ -136,4 +143,6 @@ func checkIfOnGoal():
 	
 	else:
 		self.onGoalTile = false;
+	
+	GameManager.check_win();
 	

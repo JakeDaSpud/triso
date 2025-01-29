@@ -18,3 +18,7 @@ func _input(InputEvent) -> void:
 			resume();
 		else:
 			pause();
+
+
+func _on_level_select_pressed():
+	pass # Replace with function body.

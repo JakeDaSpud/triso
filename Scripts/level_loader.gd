@@ -12,6 +12,7 @@ const Circle_Player_Entity = preload("res://Entities/Players/Circle.tscn");
 const Square_Player_Entity = preload("res://Entities/Players/Square.tscn");
 const Triangle_Player_Entity = preload("res://Entities/Players/Triangle.tscn");
 const Spawn_Entity = preload("res://Entities/Tiles/Spawn_Tile.tscn");
+var Players : Array[Node3D] = [];
 
 const Circle_Goal_Entity = preload("res://Entities/Tiles/CircleGoal_Tile.tscn");
 const Square_Goal_Entity = preload("res://Entities/Tiles/SquareGoal_Tile.tscn");
@@ -107,7 +108,7 @@ func load_level(level_file_path : String = GameManager.level_to_load) -> void:
 	# iterate col
 	var col = 0;
 	var row = 0;
-	var index = 0;
+	var _index = 0;
 	
 	for _current_tile : String in _lines:
 		_current_tile = _current_tile.replace(" ", "");
@@ -223,6 +224,26 @@ func _spawn(pos : Vector3, type : PackedScene) -> void:
 	
 	add_child(_tile);
 	
+	if type == Circle_Player_Entity || type == Square_Player_Entity || type == Triangle_Player_Entity:
+		Players.append(_tile);
+	
+
+# Iterate all Players can check if they are all Winning
+func check_win() -> void:
+	var all_on_goal : bool = true;
+	for Player in Players:
+		if !Player.onGoalTile:
+			all_on_goal = false;
+	
+	if all_on_goal:
+		_win();
+	
+
+# Update WinScreen's Moves Taken counter and show it
+func _win() -> void:
+	GameManager.level_complete = true;
+	$WinScreen/PanelContainer/VBoxContainer/MarginContainer3/VBoxContainer/MovesTaken.text = "Moves Taken: " + str(GameManager.player_moves);
+	$WinScreen.show();
 
 # Dramatic pause so the player can see the level get built, might be annoying for bigger levels
 func _wait(duration : float) -> void:

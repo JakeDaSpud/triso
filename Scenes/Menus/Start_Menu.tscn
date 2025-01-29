@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cubpyoliwesop"]
 
-[ext_resource type="Theme" uid="uid://bi3a0ha1ob2vt" path="res://Assets/Themes/main_theme.tres" id="1_6qus3"]
-[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_s6gm7"]
-[ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="3_fnmx3"]
-[ext_resource type="PackedScene" uid="uid://c63ydq1syhe8l" path="res://Scenes/Menus/level_select_scene.tscn" id="4_xp50j"]
+[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_otn0c"]
+[ext_resource type="Theme" uid="uid://bi3a0ha1ob2vt" path="res://Assets/Themes/main_theme.tres" id="2_g7fi7"]
+[ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="3_c84vp"]
+[ext_resource type="PackedScene" uid="uid://c63ydq1syhe8l" path="res://Scenes/Menus/Level_Select_Scene.tscn" id="4_38hb8"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_1w6fw"]
 color = Color(0.67, 0.67, 0.67, 0.588235)
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_s6gm7")
+script = ExtResource("1_otn0c")
 
 [node name="BG_Colour" type="ColorRect" parent="."]
 layout_mode = 1
@@ -56,7 +56,7 @@ size_flags_vertical = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Main/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6qus3")
+theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -68,34 +68,34 @@ autowrap_mode = 0
 
 [node name="HSeparator2" type="HSeparator" parent="Main/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Level_Select_Button" type="Button" parent="Main/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = "Level Select"
 
 [node name="Settings_Button" type="Button" parent="Main/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = "Settings"
 
 [node name="Credits_Button" type="Button" parent="Main/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = "Credits"
 
 [node name="HSeparator" type="HSeparator" parent="Main/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Quit_Button" type="Button" parent="Main/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = "Quit"
 
 [node name="Settings" type="Control" parent="."]
@@ -128,7 +128,7 @@ size_flags_vertical = 4
 
 [node name="Settings Title" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6qus3")
+theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -140,13 +140,13 @@ autowrap_mode = 0
 
 [node name="HSeparator" type="HSeparator" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Game Title" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6qus3")
+theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -161,7 +161,7 @@ layout_mode = 2
 
 [node name="Level_Colour" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/Level_Colour"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = " Level Colour"
 fit_content = true
 autowrap_mode = 0
@@ -210,13 +210,13 @@ popup/item_17/id = 17
 
 [node name="HSeparator3" type="HSeparator" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Video Title" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6qus3")
+theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -231,7 +231,7 @@ layout_mode = 2
 
 [node name="Fullscreen" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/Fullscreen"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = " Fullscreen"
 fit_content = true
 autowrap_mode = 0
@@ -245,7 +245,7 @@ layout_mode = 2
 
 [node name="Resolution" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/Resolution"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = " Window Size"
 fit_content = true
 autowrap_mode = 0
@@ -283,13 +283,13 @@ popup/item_10/id = 45
 
 [node name="HSeparator4" type="HSeparator" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Audio Title" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6qus3")
+theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -306,7 +306,7 @@ vertical = true
 
 [node name="Master_Audio" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/Master"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = " Master Volume"
 fit_content = true
 autowrap_mode = 0
@@ -325,7 +325,7 @@ vertical = true
 
 [node name="Music_Audio" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/Music"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = " Music Volume"
 fit_content = true
 autowrap_mode = 0
@@ -345,7 +345,7 @@ vertical = true
 
 [node name="SFX_Audio" type="RichTextLabel" parent="Settings/HBoxContainer/VBoxContainer/SFX"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = " SFX Volume"
 fit_content = true
 autowrap_mode = 0
@@ -360,13 +360,13 @@ value = 1.0
 
 [node name="HSeparator2" type="HSeparator" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Back_Button" type="Button" parent="Settings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = "Back"
 
 [node name="LevelSelect" type="Control" parent="."]
@@ -400,7 +400,7 @@ size_flags_vertical = 4
 
 [node name="Level Select Title" type="RichTextLabel" parent="LevelSelect/NewLevelSelect/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6qus3")
+theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -412,7 +412,7 @@ autowrap_mode = 0
 
 [node name="HSeparator" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
@@ -438,7 +438,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Level_01" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_xp50j")]
+[node name="Level_01" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_38hb8")]
 layout_mode = 2
 level_id = "Level 01"
 level_name = "Basics"
@@ -446,7 +446,7 @@ level_difficulty = "⭐"
 level_target = 4
 level_txt_file = "res://Scenes/Levels/LevelData/Level-01_Basics.txt"
 
-[node name="Level_02" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_xp50j")]
+[node name="Level_02" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_38hb8")]
 layout_mode = 2
 level_id = "Level 02"
 level_name = "S, imple"
@@ -454,7 +454,7 @@ level_difficulty = "⭐"
 level_target = 11
 level_txt_file = "res://Scenes/Levels/LevelData/Level-02_S_imple.txt"
 
-[node name="Level_03" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_xp50j")]
+[node name="Level_03" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer/Level_Row_1" instance=ExtResource("4_38hb8")]
 layout_mode = 2
 level_id = "Level 03"
 level_name = "Infinity"
@@ -470,7 +470,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Level_04" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1" instance=ExtResource("4_xp50j")]
+[node name="Level_04" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1" instance=ExtResource("4_38hb8")]
 layout_mode = 2
 level_id = "Level 04"
 level_name = "Loop"
@@ -478,7 +478,7 @@ level_difficulty = "⭐"
 level_target = 10
 level_txt_file = "res://Scenes/Levels/LevelData/Level-04_Loop.txt"
 
-[node name="Level_05" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1" instance=ExtResource("4_xp50j")]
+[node name="Level_05" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1" instance=ExtResource("4_38hb8")]
 layout_mode = 2
 level_id = "Level 05"
 level_name = "Shuffle"
@@ -488,13 +488,13 @@ level_txt_file = "res://Scenes/Levels/LevelData/Level-05_Shuffle.txt"
 
 [node name="HSeparator2" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Back_Button" type="Button" parent="LevelSelect/NewLevelSelect/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = "Back"
 
 [node name="Credits" type="Control" parent="."]
@@ -527,7 +527,7 @@ size_flags_vertical = 4
 
 [node name="Credits Title" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6qus3")
+theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -539,13 +539,13 @@ autowrap_mode = 0
 
 [node name="HSeparator" type="HSeparator" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Jake O\'Reilly Title" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6qus3")
+theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -557,20 +557,20 @@ autowrap_mode = 0
 
 [node name="Jake Jobs" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = " Lead, Programming, Concept, Level Design"
 fit_content = true
 autowrap_mode = 0
 
 [node name="HSeparator3" type="HSeparator" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Kaylon Riordan Title" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6qus3")
+theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -582,20 +582,20 @@ autowrap_mode = 0
 
 [node name="Kaylon Riordan Jobs" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = " Programming: Player Collision"
 fit_content = true
 autowrap_mode = 0
 
 [node name="HSeparator2" type="HSeparator" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Eoin Hamill Title" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6qus3")
+theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -607,20 +607,20 @@ autowrap_mode = 0
 
 [node name="Eoin Hamill Jobs" type="RichTextLabel" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = " 3D Art: Player Models, Tile Models"
 fit_content = true
 autowrap_mode = 0
 
 [node name="HSeparator4" type="HSeparator" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 
 [node name="Back_Button" type="Button" parent="Credits/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_fnmx3")
+theme = ExtResource("3_c84vp")
 text = "Back"
 
 [node name="BG_Music" type="AudioStreamPlayer" parent="."]
