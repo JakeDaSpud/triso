@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bwxyf1daqa28p"]
+
+[sub_resource type="SystemFont" id="SystemFont_ylaey"]
+font_names = PackedStringArray("Monospace")
+
+[resource]
+default_font = SubResource("SystemFont_ylaey")
+default_font_size = 20

@@ -1,0 +1,7 @@
+v, v, v, v, v
+v, g, g, c, v
+v, g, w, w, v
+v, g, g, g, v
+v, w, w, g, v
+v, x, g, g, v
+v, v, v, v, v

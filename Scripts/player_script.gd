@@ -12,12 +12,17 @@ var GotEmpty = false;
 var count = 0;
 var timer : int;
 
+@export var onGoalTile : bool = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (GameManager.level_complete):
+		return;
+	
 	# Get board array from parent, change current coordinates with own shape, update the parent's board
 	Board = get_parent().Board;
 	Board[y][x] = shape;
@@ -51,6 +56,10 @@ func _process(delta):
 				x -= 1;
 				print(shape,": ",x,",",y)
 				break;
+			
+		Board = get_parent().Board;
+		GameManager.increment_player_move();
+		checkIfOnGoal();
 	
 	if Input.is_action_just_pressed("Up") && timer > 2:
 		timer = 0;
@@ -68,6 +77,10 @@ func _process(delta):
 				y -= 1;
 				print(shape,": ",x,",",y)
 				break;
+			
+		Board = get_parent().Board;
+		GameManager.increment_player_move();
+		checkIfOnGoal();
 	
 	if Input.is_action_just_pressed("Right") && timer > 2:
 		timer = 0;
@@ -85,6 +98,10 @@ func _process(delta):
 				x += 1;
 				print(shape,": ",x,",",y)
 				break;
+			
+		Board = get_parent().Board;
+		GameManager.increment_player_move();
+		checkIfOnGoal();
 	
 	if Input.is_action_just_pressed("Down") && timer > 2:
 		timer = 0;
@@ -102,10 +119,30 @@ func _process(delta):
 				y += 1;
 				print(shape,": ",x,",",y)
 				break;
+			
+		Board = get_parent().Board;
+		GameManager.increment_player_move();
+		checkIfOnGoal();
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		count += 1;
 		print("\nBoard ", count)
 		for inner_array in Board:
 			print(inner_array, inner_array.size());
+	
+
+func checkIfOnGoal():
+	if BoardEmpty[y][x] == "x" && self.shape == "c":
+		self.onGoalTile = true;
+		
+	elif BoardEmpty[y][x] == "y" && self.shape == "s":
+		self.onGoalTile = true;
+	
+	elif BoardEmpty[y][x] == "z" && self.shape == "t":
+		self.onGoalTile = true;
+	
+	else:
+		self.onGoalTile = false;
+	
+	GameManager.check_win();
 	

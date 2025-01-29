@@ -1,0 +1,176 @@
+[gd_scene load_steps=5 format=3 uid="uid://023dl7lti4dx"]
+
+[ext_resource type="Script" path="res://Scripts/level_loader.gd" id="1_opnp5"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="2_8xam4"]
+[ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="3_ho1sy"]
+[ext_resource type="Theme" uid="uid://bi3a0ha1ob2vt" path="res://Assets/Themes/main_theme.tres" id="4_0glts"]
+
+[node name="Dynamic_Level" type="Node3D"]
+script = ExtResource("1_opnp5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5, -0.612372, 0.612372, 0, 0.707107, 0.707107, -0.866025, -0.353553, 0.353553, 0, 0, 0)
+light_energy = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.73038, -0.25, 0.635646, 0.00623601, 0.933013, 0.359789, -0.683013, -0.258819, 0.683013, 8, 6, 8)
+projection = 1
+size = 14.0
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_8xam4")
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Resume" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_ho1sy")
+text = "Resume"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="LevelSelect" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_ho1sy")
+text = "Main Menu"
+
+[node name="WinScreen" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="WinScreen"]
+custom_minimum_size = Vector2(800, 501)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinScreen/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="WinScreen/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinScreen/PanelContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WinScreen/PanelContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelComplete" type="RichTextLabel" parent="WinScreen/PanelContainer/VBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_0glts")
+theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/line_separation = 25
+theme_override_font_sizes/normal_font_size = 90
+text = "Level Complete"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MovesTaken" type="RichTextLabel" parent="WinScreen/PanelContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ho1sy")
+theme_override_font_sizes/normal_font_size = 56
+text = "Moves Taken: "
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="WinScreen/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="LevelSelect" type="Button" parent="WinScreen/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_ho1sy")
+theme_override_font_sizes/font_size = 86
+text = "Main Menu"
+
+[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/MarginContainer/Resume" to="PauseMenu" method="resume"]
+[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/MarginContainer2/LevelSelect" to="PauseMenu" method="main_menu"]
+[connection signal="pressed" from="WinScreen/PanelContainer/VBoxContainer/MarginContainer2/LevelSelect" to="PauseMenu" method="main_menu"]
