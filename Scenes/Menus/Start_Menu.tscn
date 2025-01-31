@@ -486,6 +486,46 @@ level_difficulty = "⭐"
 level_target = 5
 level_txt_file = "res://Scenes/Levels/LevelData/Level-05_Shuffle.txt"
 
+[node name="Level_06" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer2/Level_Row_1" instance=ExtResource("4_38hb8")]
+layout_mode = 2
+level_id = "Level 06"
+level_name = "Cubby"
+level_difficulty = "⭐⭐⭐"
+level_target = 99
+level_txt_file = "res://Scenes/Levels/LevelData/Level-06_Cubby.txt"
+
+[node name="MarginContainer3" type="MarginContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="Level_Row_1" type="HBoxContainer" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Level_07" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1" instance=ExtResource("4_38hb8")]
+layout_mode = 2
+level_id = "Level 07"
+level_name = "Jug"
+level_difficulty = "⭐⭐⭐"
+level_target = 99
+level_txt_file = "res://Scenes/Levels/LevelData/Level-07_Jug.txt"
+
+[node name="Level_08" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1" instance=ExtResource("4_38hb8")]
+layout_mode = 2
+level_id = "Level 08"
+level_name = "Alpha"
+level_difficulty = "⭐⭐⭐"
+level_target = 99
+level_txt_file = "res://Scenes/Levels/LevelData/Level-08_Alpha.txt"
+
+[node name="Level_09" parent="LevelSelect/NewLevelSelect/VBoxContainer/MarginContainer/Level_Select_ScrollContainer/Rows/MarginContainer3/Level_Row_1" instance=ExtResource("4_38hb8")]
+layout_mode = 2
+level_id = "Level 09"
+level_name = "Cramped"
+level_difficulty = "⭐⭐⭐"
+level_target = 99
+level_txt_file = "res://Scenes/Levels/LevelData/Level-09_Cramped.txt"
+
 [node name="HSeparator2" type="HSeparator" parent="LevelSelect/NewLevelSelect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_c84vp")

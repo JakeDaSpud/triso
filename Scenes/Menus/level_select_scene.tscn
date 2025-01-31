@@ -54,7 +54,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_offset_x = 2
-text = " Level 01 - Basics"
+text = " Level 00 - Name"
 fit_content = true
 autowrap_mode = 0
 
@@ -67,14 +67,14 @@ theme_override_styles/separator = SubResource("StyleBoxLine_1w6fw")
 [node name="Difficulty Title" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/Attributes"]
 layout_mode = 2
 theme = ExtResource("2_xt1fr")
-text = " Difficulty:⭐"
+text = " Difficulty:⭐⭐⭐"
 fit_content = true
 autowrap_mode = 0
 
 [node name="Target Moves Title" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/Attributes"]
 layout_mode = 2
 theme = ExtResource("2_xt1fr")
-text = " Challenge: Under 4 moves "
+text = " Challenge: Under 99 moves"
 fit_content = true
 autowrap_mode = 0
 
