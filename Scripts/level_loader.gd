@@ -242,6 +242,7 @@ func check_win() -> void:
 # Update WinScreen's Moves Taken counter and show it
 func _win() -> void:
 	GameManager.level_complete = true;
+	GameManager.player_moves = ceili(float(GameManager.player_moves) / Players.size());
 	$WinScreen/PanelContainer/VBoxContainer/MarginContainer3/VBoxContainer/MovesTaken.text = "Moves Taken: " + str(GameManager.player_moves);
 	$WinScreen.show();
 

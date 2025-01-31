@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_otn0c"]
 [ext_resource type="Theme" uid="uid://bi3a0ha1ob2vt" path="res://Assets/Themes/main_theme.tres" id="2_g7fi7"]
 [ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="3_c84vp"]
-[ext_resource type="PackedScene" uid="uid://c63ydq1syhe8l" path="res://Scenes/Menus/Level_Select_Scene.tscn" id="4_38hb8"]
+[ext_resource type="PackedScene" uid="uid://c63ydq1syhe8l" path="res://Scenes/Menus/level_select_scene.tscn" id="4_38hb8"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_1w6fw"]
 color = Color(0.67, 0.67, 0.67, 0.588235)

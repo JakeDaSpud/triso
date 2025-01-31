@@ -5,14 +5,15 @@ extends Node3D
 var x : int;
 var y : int;
 var shape : String;
+var moved_this_turn : bool = false;
+@export var onGoalTile : bool = false;
+
 var far : int;
 var Board : Array[Array];
 var BoardEmpty : Array[Array];
 var GotEmpty = false;
 var count = 0;
 var timer : int;
-
-@export var onGoalTile : bool = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
