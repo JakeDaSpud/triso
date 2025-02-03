@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://023dl7lti4dx"]
+[gd_scene load_steps=6 format=3 uid="uid://023dl7lti4dx"]
 
 [ext_resource type="Script" path="res://Scripts/level_loader.gd" id="1_opnp5"]
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="2_8xam4"]
 [ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="3_ho1sy"]
 [ext_resource type="Theme" uid="uid://bi3a0ha1ob2vt" path="res://Assets/Themes/main_theme.tres" id="4_0glts"]
 
+[sub_resource type="Environment" id="Environment_d3ayy"]
+background_mode = 1
+background_color = Color(0.52171, 8.42288e-07, 0.313288, 1)
+ambient_light_source = 1
+
 [node name="Dynamic_Level" type="Node3D"]
 script = ExtResource("1_opnp5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d3ayy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.5, -0.612372, 0.612372, 0, 0.707107, 0.707107, -0.866025, -0.353553, 0.353553, 0, 0, 0)

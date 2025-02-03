@@ -62,6 +62,9 @@ func open_credits_menu() -> void:
 	
 	credits.show();
 
+func settings_set_level_colour(level_color_index : int) -> void:
+	GameManager.level_color = $Settings/HBoxContainer/VBoxContainer/Level_Colour/Level_Colour_Dropdown.get_item_text(level_color_index);
+
 func settings_toggle_fullscreen(toggled_on : bool) -> void:
 	
 	if (toggled_on):

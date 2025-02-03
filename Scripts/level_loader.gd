@@ -58,7 +58,18 @@ var ground_count : int = 0;
 var wall_count : int = 0;
 var void_count : int = 0;
 
+func _set_skybox() -> void:
+	if (GameManager.level_color == "Random"):
+		# Randomly select colour
+		randomize();
+		$WorldEnvironment.environment.background_color = GameManager.colors.keys().pick_random();
+	else:
+		$WorldEnvironment.environment.background_color = GameManager.colors[GameManager.level_color];
+
 func _ready():
+	# Set skybox colour
+	_set_skybox();
+	
 	# Add first row to array
 	Board.append([]);
 	
