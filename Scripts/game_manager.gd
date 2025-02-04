@@ -4,6 +4,7 @@ var level_to_load : String = "";
 var level_complete : bool = false;
 var player_moves : int = 0;
 
+# Level Settings
 var level_color : String = "Random";
 var level_waiting : bool = true;
 var colors : Dictionary = {
@@ -21,9 +22,14 @@ var colors : Dictionary = {
 	"White" : "#ebebeb"
 }
 
+# Audio Settings
 var master_volume : int = 100;
 var music_volume : int = 100;
 var sfx_volume : int = 100;
+
+# Control Settings
+var camera_sensitivity : float = 0.3;
+var inverted_camera : bool = false;
 
 func check_win() -> void:
 	print_debug("current scene name: " + get_tree().current_scene.name);

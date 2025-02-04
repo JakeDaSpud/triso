@@ -5,8 +5,9 @@ func resume():
 	get_tree().paused = false;
 
 func pause():
-	get_tree().paused = true;
-	self.show();
+	if (!GameManager.level_complete):
+		get_tree().paused = true;
+		self.show();
 
 func main_menu():
 	get_tree().paused = false;

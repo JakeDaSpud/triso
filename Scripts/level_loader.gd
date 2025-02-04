@@ -252,7 +252,10 @@ func _set_camera() -> void:
 	$Camera3D.position.x = map_length + camera_x_offset;
 	$Camera3D.position.z = map_height + camera_z_offset;
 	
-	# Angle Camera correctly
+	$CameraPivot.position.x = (map_length + camera_x_offset) / 2;
+	$CameraPivot.position.z = (map_height + camera_z_offset) / 2;
+	
+	$Camera3D.reparent($CameraPivot, true);
 
 # Iterate all Players can check if they are all Winning
 func check_win() -> void:
