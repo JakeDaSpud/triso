@@ -1,6 +1,8 @@
 extends Node3D
 
 var GAMEMANAGERS_TileSize : float = 2.0;
+@export var camera_x_offset : int = 8;
+@export var camera_z_offset : int = 8;
 
 # Create an array of arrays to store x and y positions of all tiles that players can access
 var Board : Array[Array];
@@ -62,7 +64,7 @@ func _set_skybox() -> void:
 	if (GameManager.level_color == "Random"):
 		# Randomly select colour
 		randomize();
-		$WorldEnvironment.environment.background_color = GameManager.colors.keys().pick_random();
+		$WorldEnvironment.environment.background_color = GameManager.colors[GameManager.colors.keys().pick_random()];
 	else:
 		$WorldEnvironment.environment.background_color = GameManager.colors[GameManager.level_color];
 
@@ -74,6 +76,9 @@ func _ready():
 	Board.append([]);
 	
 	load_level();
+	
+	# Set Camera 
+	_set_camera();
 	
 	# Remove last empty row that is created because of level file structure
 	Board.remove_at(Board.size() - 1);
@@ -145,6 +150,7 @@ func load_level(level_file_path : String = GameManager.level_to_load) -> void:
 			#print_debug("Going to next line!");
 			col = 0;
 			row += 1;
+			map_height = row;
 			# start new line in array
 			Board.append([]);
 			
@@ -158,6 +164,7 @@ func load_level(level_file_path : String = GameManager.level_to_load) -> void:
 		# Going right
 		else:
 			col += 1;
+			map_length = col;
 		
 		_determine_tile_and_spawn(_current_tile, Vector3(col * GAMEMANAGERS_TileSize, 0, row * GAMEMANAGERS_TileSize));
 		if(_current_tile != "v\nv"):
@@ -238,6 +245,14 @@ func _spawn(pos : Vector3, type : PackedScene) -> void:
 	if type == Circle_Player_Entity || type == Square_Player_Entity || type == Triangle_Player_Entity:
 		Players.append(_tile);
 	
+
+func _set_camera() -> void:
+	
+	# Calculate centre of level
+	$Camera3D.position.x = map_length + camera_x_offset;
+	$Camera3D.position.z = map_height + camera_z_offset;
+	
+	# Angle Camera correctly
 
 # Iterate all Players can check if they are all Winning
 func check_win() -> void:
