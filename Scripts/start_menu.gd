@@ -2,9 +2,13 @@ extends Control
 
 # Initialise all Menus
 var main : Control;
+var main_focus : Control;
 var settings : Control;
+var settings_focus : Control;
 var level_select : Control;
+var level_select_focus : Control;
 var credits : Control;
+var credits_focus : Control;
 
 var settings_master_slider : Control;
 var settings_music_slider : Control;
@@ -15,9 +19,15 @@ func _ready():
 	
 	# Grab all Menus
 	main = $Main;
+	main_focus = $Main/HBoxContainer/VBoxContainer/Level_Select_Button;
 	settings = $Settings;
+	settings_focus = $Settings/HBoxContainer/VBoxContainer/Back_Button;
 	level_select = $LevelSelect;
+	level_select_focus = $LevelSelect/NewLevelSelect/VBoxContainer/Back_Button;
 	credits = $Credits;
+	credits_focus = $Credits/HBoxContainer/VBoxContainer/Back_Button
+	
+	main_focus.grab_focus();
 	
 	# Grab all Audio Sliders
 	settings_master_slider = $Settings/HBoxContainer/VBoxContainer/Master/Master_Slider;
@@ -39,7 +49,8 @@ func open_main_menu() -> void:
 	level_select.hide();
 	credits.hide();
 	
-	main.show();;
+	main.show();
+	main_focus.grab_focus();
 
 func open_settings_menu() -> void:
 	main.hide();
@@ -47,6 +58,7 @@ func open_settings_menu() -> void:
 	credits.hide();
 	
 	settings.show();
+	settings_focus.grab_focus();
 
 func open_level_select_menu() -> void:
 	main.hide();
@@ -54,6 +66,7 @@ func open_level_select_menu() -> void:
 	credits.hide();
 	
 	level_select.show();
+	level_select_focus.grab_focus();
 
 func open_credits_menu() -> void:
 	main.hide();
@@ -61,6 +74,7 @@ func open_credits_menu() -> void:
 	level_select.hide();
 	
 	credits.show();
+	credits_focus.grab_focus();
 
 func settings_set_level_colour(level_color_index : int) -> void:
 	GameManager.level_color = $Settings/HBoxContainer/VBoxContainer/Level_Colour/Level_Colour_Dropdown.get_item_text(level_color_index);

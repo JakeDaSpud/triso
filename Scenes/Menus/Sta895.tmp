@@ -1,13 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cubpyoliwesop"]
+[gd_scene load_steps=6 format=3 uid="uid://cubpyoliwesop"]
 
 [ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_otn0c"]
 [ext_resource type="Theme" uid="uid://bi3a0ha1ob2vt" path="res://Assets/Themes/main_theme.tres" id="2_g7fi7"]
-[ext_resource type="Texture2D" uid="uid://cido3oonymwus" path="res://Assets/Images/triso_shapes_normal.png" id="2_k8e1j"]
 [ext_resource type="Theme" uid="uid://bwxyf1daqa28p" path="res://Assets/Themes/normal_theme.tres" id="3_c84vp"]
-[ext_resource type="Texture2D" uid="uid://lutq1buxjdk" path="res://Assets/Images/triso_shapes_shadow.png" id="3_calen"]
-[ext_resource type="Texture2D" uid="uid://cxhye0fjo3iua" path="res://Assets/Images/triso_shapes_circular.png" id="4_6kx0h"]
 [ext_resource type="PackedScene" uid="uid://c63ydq1syhe8l" path="res://Scenes/Menus/level_select_scene.tscn" id="4_38hb8"]
-[ext_resource type="PackedScene" uid="uid://bk20toanr17rx" path="res://Scenes/Menus/TrisoLogo.tscn" id="5_4jill"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_1w6fw"]
 color = Color(0.67, 0.67, 0.67, 0.588235)
@@ -22,17 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_otn0c")
 
-[node name="New_BG_Colour" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.866924, 0.964338, 0.985561, 1)
-
 [node name="BG_Colour" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,52 +26,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.180239, 0.503054, 0.563255, 1)
-
-[node name="BackgroundImages" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TrisoShapesShadow" type="Parallax2D" parent="BackgroundImages"]
-repeat_size = Vector2(1536, 1536)
-autoscroll = Vector2(-80, 90)
-repeat_times = 4
-ignore_camera_scroll = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundImages/TrisoShapesShadow"]
-texture_filter = 1
-texture_repeat = 2
-scale = Vector2(3, 3)
-texture = ExtResource("3_calen")
-
-[node name="TrisoShapesNormal" type="Parallax2D" parent="BackgroundImages"]
-repeat_size = Vector2(1536, 1536)
-autoscroll = Vector2(50, 15)
-repeat_times = 4
-ignore_camera_scroll = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundImages/TrisoShapesNormal"]
-texture_filter = 1
-texture_repeat = 2
-scale = Vector2(3, 3)
-texture = ExtResource("2_k8e1j")
-
-[node name="TrisoShapesCircular" type="Parallax2D" parent="BackgroundImages"]
-repeat_size = Vector2(1536, 1536)
-autoscroll = Vector2(-120, 75)
-repeat_times = 4
-ignore_camera_scroll = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundImages/TrisoShapesCircular"]
-texture_filter = 1
-texture_repeat = 2
-scale = Vector2(3, 3)
-texture = ExtResource("4_6kx0h")
 
 [node name="Main" type="Control" parent="."]
 layout_mode = 1
@@ -114,11 +54,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TrisoLogo" parent="Main/HBoxContainer/VBoxContainer" instance=ExtResource("5_4jill")]
-layout_mode = 2
-
 [node name="RichTextLabel" type="RichTextLabel" parent="Main/HBoxContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("2_g7fi7")
 theme_override_colors/default_color = Color(0.894448, 0.8657, 0.756734, 1)

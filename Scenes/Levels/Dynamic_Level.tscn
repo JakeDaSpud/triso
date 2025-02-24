@@ -47,6 +47,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_next = NodePath("PanelContainer/VBoxContainer/MarginContainer/Resume")
+focus_previous = NodePath("PanelContainer/VBoxContainer/MarginContainer2/LevelSelect")
 script = ExtResource("2_8xam4")
 
 [node name="PanelContainer" type="PanelContainer" parent="PauseMenu"]
@@ -78,6 +80,10 @@ theme_override_constants/margin_bottom = 20
 [node name="Resume" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../../MarginContainer2/LevelSelect")
+focus_neighbor_bottom = NodePath("../../MarginContainer2/LevelSelect")
+focus_next = NodePath("../../MarginContainer2/LevelSelect")
+focus_previous = NodePath("../../MarginContainer2/LevelSelect")
 theme = ExtResource("3_ho1sy")
 text = "Resume"
 
@@ -92,6 +98,10 @@ theme_override_constants/margin_bottom = 20
 [node name="LevelSelect" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../../MarginContainer/Resume")
+focus_neighbor_bottom = NodePath("../../MarginContainer/Resume")
+focus_next = NodePath("../../MarginContainer/Resume")
+focus_previous = NodePath("../../MarginContainer/Resume")
 theme = ExtResource("3_ho1sy")
 text = "Main Menu"
 

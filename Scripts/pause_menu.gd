@@ -3,11 +3,13 @@ extends Control
 func resume():
 	self.hide();
 	get_tree().paused = false;
+	self.release_focus();
 
 func pause():
 	if (!GameManager.level_complete):
 		get_tree().paused = true;
 		self.show();
+		$PanelContainer/VBoxContainer/MarginContainer/Resume.grab_focus();
 
 func main_menu():
 	get_tree().paused = false;

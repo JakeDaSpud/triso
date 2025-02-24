@@ -274,6 +274,7 @@ func _win() -> void:
 	GameManager.player_moves = ceili(float(GameManager.player_moves) / Players.size());
 	$WinScreen/PanelContainer/VBoxContainer/MarginContainer3/VBoxContainer/MovesTaken.text = "Moves Taken: " + str(GameManager.player_moves);
 	$WinScreen.show();
+	$WinScreen/PanelContainer/VBoxContainer/MarginContainer2/LevelSelect.grab_focus();
 
 # Dramatic pause so the player can see the level get built, might be annoying for bigger levels
 func _wait(duration : float) -> void:

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk20toanr17rx"]
+
+[ext_resource type="Texture2D" uid="uid://ga2mpw1fbwvy" path="res://Assets/Images/triso_logo.png" id="1_awmct"]
+
+[node name="TrisoLogo" type="Control"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 3
+anchor_left = -0.133
+anchor_top = -0.119
+anchor_right = 0.133
+anchor_bottom = 0.119
+offset_left = -0.639999
+offset_top = 0.520004
+offset_right = 0.639999
+offset_bottom = -0.520004
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Logo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(256, 128)
+texture = ExtResource("1_awmct")
